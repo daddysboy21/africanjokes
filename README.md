@@ -4,6 +4,11 @@
 [![Downloads](https://img.shields.io/pepy/dt/africanjokes)](https://pepy.tech/project/africanjokes)
 [![GitHub Actions Status](https://github.com/daddysboy21/africanjokes/actions/workflows/python-app.yml/badge.svg)](https://github.com/daddysboy21/africanjokes/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Versions](https://img.shields.io/pypi/pyversions/africanjokes)](https://pypi.org/project/africanjokes/)
+[![GitHub Stars](https://img.shields.io/github/stars/daddysboy21/africanjokes?style=social)](https://github.com/daddysboy21/africanjokes/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/commits)
+[![Open Issues](https://img.shields.io/github/issues/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/issues)
+
 
 **africanjokes** is a simple, lightweight Python library that delivers random African jokes —  
 because every coder deserves a laugh, especially from the Motherland.  
