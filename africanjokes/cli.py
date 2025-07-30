@@ -3,6 +3,7 @@ import africanjokes
 
 VERSION = "1.0.0"  # Update as needed
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="Get a random African joke from the CLI!"
@@ -22,6 +23,7 @@ def main():
         print(f"africanjokes version {VERSION}")
     else:
         parser.print_help()
+
 
 if __name__ == "__main__":
     main()
