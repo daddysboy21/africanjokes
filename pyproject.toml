@@ -1,27 +1,37 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=65", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "africanjokes"
 version = "0.0.5"
 description = "A library for African jokes"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+license-expression = "MIT"
 authors = [
     { name = "Morris D. Toclo", email = "morristoclo@gmail.com" }
 ]
-license = { file = "LICENSE" }
-readme = "README.md"
-requires-python = ">=3.8"
+maintainers = [
+    { name = "Morris D. Toclo", email = "morristoclo@gmail.com" }
+]
 keywords = ["jokes", "africa", "fun", "humor", "python"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Intended Audience :: Developers",
-    "Topic :: Entertainment"
+    "Topic :: Games/Entertainment",
+    "Topic :: Games/Entertainment :: Humor"
 ]
+dependencies = []
 
 [project.urls]
-GitHub = "https://github.com/daddysboy21"
-AuthorWebsite = "https://daddysboy21.link"
-Support = "https://buymeacoffee.com/PBEzMY14YC"
+Homepage = "https://github.com/daddysboy21/africanjokes"
+Author = "https://github.com/daddysboy21"
+Website = "https://daddysboy21.link"
+Funding = "https://buymeacoffee.com/PBEzMY14YC"
+Source = "https://github.com/daddysboy21/africanjokes"
+Tracker = "https://github.com/daddysboy21/africanjokes/issues"
+Documentation = "https://github.com/daddysboy21/africanjokes/wiki"
+License = "https://github.com/daddysboy21/africanjokes/blob/main/LICENSE"
