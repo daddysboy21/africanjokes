@@ -3,8 +3,7 @@ import importlib.resources
 
 
 def get_joke():
-    with importlib.resources.open_text(
-        "africanjokes", "jokes.txt", encoding="utf-8"
-    ) as f:
+    jokes_path = importlib.resources.files("africanjokes") / "jokes.txt"
+    with jokes_path.open(encoding="utf-8") as f:
         jokes = f.readlines()
     return random.choice(jokes).strip()

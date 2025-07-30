@@ -156,13 +156,16 @@ africanjokes supports:
 
 CLI commands are tested automatically using [pytest](https://pytest.org/) and [pytest-console-scripts](https://github.com/manahl/pytest-plugins/tree/master/pytest-console-scripts).
 
-Example test (see `tests/test_cli.py`):
+Example test:
 
 ```python
-def test_cli_joke(script_runner):
-    result = script_runner.run('africanjokes', '--joke')
-    assert result.success
-    assert "Why" in result.stdout 
+import africanjokes
+
+def test_get_joke_returns_string():
+    joke = africanjokes.get_joke()
+    assert isinstance(joke, str)
+    assert joke
+     
 ```
 
 ---

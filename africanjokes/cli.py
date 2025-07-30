@@ -1,7 +1,7 @@
 import argparse
 import africanjokes
 
-VERSION = "1.0.0"  # Update as needed
+VERSION = "1.0.1"  # Update as needed
 
 
 def main():

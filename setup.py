@@ -9,7 +9,7 @@ except FileNotFoundError:
 
 setup(
     name='africanjokes',
-    version='1.0.0',
+    version='1.0.1',
     description='A library for African jokes',
     long_description=long_description,
     long_description_content_type="text/markdown",
