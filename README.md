@@ -11,6 +11,21 @@ Spread joy, lighten up your day, and code with a smile! 😄
 
 ---
 
+---
+
+## 📚 Table of Contents
+
+- [Installation](#-installation)
+- [What is africanjokes?](#-what-is-africanjokes)
+- [Quickstart](#-quickstart)
+- [Contributing](#️-contributing)
+- [License](#-license)
+- [Author](#-author)
+- [Connect with Me](#-connect-with-me)
+- [Support & Spread Laughter](#-support--spread-laughter)
+
+---
+
 ## 📦 Installation
 
 Get started instantly with pip:
@@ -36,9 +51,9 @@ Whether you're looking to break the ice or just need a pick-me-up, africanjokes 
 
 ---
 
-## 🚀 Usage
+## 🚀 Quickstart
 
-### In Python
+### Use in Python
 
 ```python
 import africanjokes
@@ -47,13 +62,13 @@ joke = africanjokes.get_joke()
 print(joke)
 ```
 
-### Command-Line
+### Use from Command Line
 
 ```bash
 africanjokes --joke
 ```
 
-Every time you run it, you'll get a new random African joke.
+Get a new random African joke every time you run it!
 
 ---
 
@@ -62,42 +77,42 @@ Every time you run it, you'll get a new random African joke.
 Got a great African joke to share?  
 Help us keep the laughter flowing — contributions are welcome!
 
-- Fork the repo
-- Add your joke
-- Submit a PR
+1. **Fork** the repo  
+2. **Add** your joke  
+3. **Submit** a PR  
 
-See [`CONTRIBUTING`](https://github.com/daddysboy21/africanjokes/wiki/Contributing) for details.
+See [`CONTRIBUTING wiki`](https://github.com/daddysboy21/africanjokes/wiki/Contributing) for full details.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE) — free to use, modify, and distribute.
+This project is licensed under the [`MIT License`](https://github.com/daddysboy21/africanjokes/blob/main/LICENSE)
+ — free to use, modify, and distribute.
 
 ---
 
 ## 👤 Author
 
-**Morris D. Toclo**  
+**`Morris D. Toclo`**  
 Co-Founder & Co-CEO of LoneScore  
-Student — BlueCrest University Liberia  
-Monrovia, Liberia 🇱🇷
+Student — BlueCrest University College Liberia  
+Monrovia, Liberia `🇱🇷`
 
 ---
 
 ## 🌐 Connect with Me
 
-- [Website](https://daddysboy21.link)
-- [GitHub](https://github.com/daddysboy21)
-- [LinkedIn](https://www.linkedin.com/in/morris-toclo-a83858275)
-- [X (Twitter)](https://x.com/daddys_boy_21)
-- [YouTube](https://www.youtube.com/channel/UCKgmatN021JqMiH9B1EKkvw)
-- [Twitch](https://twitch.tv/daddysboy021)
-- [Instagram](https://instagram.com/daddy.s.boy.21)
-- [TikTok](https://tiktok.com/@daddy.s.boy.21)
-- [WhatsApp](https://wa.me/231555557034)
-- [Buy Me a Coffee](https://buymeacoffee.com/PBEzMY14YC)
-- [Gravatar](https://daddysboy21.link)
+- [`Website`](https://daddysboy21.link)
+- [`GitHub`](https://github.com/daddysboy21)
+- [`LinkedIn`](https://www.linkedin.com/in/morris-toclo-a83858275)
+- [`X (Twitter)`](https://x.com/daddysboy_21)
+- [`Twitch`](https://twitch.tv/daddysboy_21)
+- [`Instagram`](https://instagram.com/daddysboy.21)
+- [`TikTok`](https://tiktok.com/@daddysboy.21)
+- [`WhatsApp`](https://wa.me/231555557034)
+- [`Buy Me a Coffee`](https://buymeacoffee.com/PBEzMY14YC)
+- [`Gravatar`](https://daddysboy21.link)
 
 ---
 
@@ -107,8 +122,10 @@ If you enjoy using africanjokes, please:
 
 - ⭐ Star the repo  
 - 🛠️ Contribute your own jokes  
-- ☕ [Buy Me a Coffee](https://buymeacoffee.com/PBEzMY14YC)  
+- ☕ [`Buy Me a Coffee`](https://buymeacoffee.com/PBEzMY14YC)  
 - 📣 Share it with your community  
 
 Let’s spread African joy — one joke at a time.  
-**Made with ❤️ in Africa.**
+**`Made with ❤️ in Africa.`**
+
+---
