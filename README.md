@@ -1,14 +1,34 @@
 # africanjokes 🌍
 
+<!-- Main project stats badges -->
 [![PyPI version](https://img.shields.io/pypi/v/africanjokes)](https://pypi.org/project/africanjokes/)
 [![Downloads](https://img.shields.io/pepy/dt/africanjokes)](https://pepy.tech/project/africanjokes)
 [![GitHub Actions Status](https://github.com/daddysboy21/africanjokes/actions/workflows/python-app.yml/badge.svg)](https://github.com/daddysboy21/africanjokes/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Versions](https://img.shields.io/pypi/pyversions/africanjokes)](https://pypi.org/project/africanjokes/)
-[![GitHub Stars](https://img.shields.io/github/stars/daddysboy21/africanjokes?style=social)](https://github.com/daddysboy21/africanjokes/stargazers)
+[![Maintenance](https://img.shields.io/maintenance/yes/2025)](https://github.com/daddysboy21/africanjokes)
+
+<!-- GitHub community stats badges -->
+[![GitHub stars](https://img.shields.io/github/stars/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/network)
+[![GitHub watchers](https://img.shields.io/github/watchers/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/watchers)
 [![Last Commit](https://img.shields.io/github/last-commit/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/commits)
 [![Open Issues](https://img.shields.io/github/issues/daddysboy21/africanjokes)](https://github.com/daddysboy21/africanjokes/issues)
 
+<br>
+
+<!-- Social & support badges grouped for clarity -->
+[![Twitter Follow](https://img.shields.io/twitter/follow/daddysboy_21?style=social)](https://twitter.com/daddysboy_21)
+[![GitHub followers](https://img.shields.io/github/followers/daddysboy21?label=Follow&style=social)](https://github.com/daddysboy21)
+[![Instagram](https://img.shields.io/badge/@daddysboy.21-E4405F?style=flat&logo=instagram&logoColor=white)](https://instagram.com/daddysboy.21)
+[![TikTok](https://img.shields.io/badge/TikTok-@daddysboy.21-black?style=flat&logo=tiktok)](https://tiktok.com/@daddysboy.21)
+[![Twitch](https://img.shields.io/badge/Twitch-daddysboy_21-9146FF?style=flat&logo=twitch&logoColor=white)](https://twitch.tv/daddysboy_21)
+[![Gravatar](https://img.shields.io/badge/Gravatar-daddysboy21-4B8BBE?style=flat&logo=gravatar&logoColor=white)](https://daddysboy21.link)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp&logoColor=white)](https://wa.me/231555557034)
+[![Buy Me A Coffee](https://img.shields.io/badge/Support☕-Buy%20Me%20a%20Coffee-orange?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/PBEzMY14YC)
+![Made with ❤️ in Africa](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-in%20Africa-4c1?style=flat)
+
+---
 
 **africanjokes** is a simple, lightweight Python library that delivers random African jokes —  
 because every coder deserves a laugh, especially from the Motherland.  
