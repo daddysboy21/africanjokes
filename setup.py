@@ -9,7 +9,7 @@ except FileNotFoundError:
 
 setup(
     name='africanjokes',
-    version='0.0.5',
+    version='1.0.0',
     description='A library for African jokes',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -29,13 +29,14 @@ setup(
         "Topic :: Games/Entertainment :: Humor"
     ],
     entry_points={
-        'console_scripts': [
-            'africanjokes=africanjokes.__init__:get_joke',
+        "console_scripts": [
+            "africanjokes=africanjokes.cli:main",
         ],
     },
     package_data={
         'africanjokes': ['jokes.txt'],
     },
+    url='https://github.com/daddysboy21/africanjokes',
     project_urls={
         "Homepage": "https://github.com/daddysboy21/africanjokes",
         "Author": "https://github.com/daddysboy21",

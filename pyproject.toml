@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "africanjokes"
-version = "0.0.5"
+version = "1.0.0"
 description = "A library for African jokes"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.8"
@@ -35,3 +35,12 @@ Source = "https://github.com/daddysboy21/africanjokes"
 Tracker = "https://github.com/daddysboy21/africanjokes/issues"
 Documentation = "https://github.com/daddysboy21/africanjokes/wiki"
 License = "https://github.com/daddysboy21/africanjokes/blob/main/LICENSE"
+
+[project.scripts]
+africanjokes = "africanjokes.cli:main"
+
+[tool.setuptools.package-data]
+africanjokes = ["jokes.txt"]
+
+[tool.setuptools]
+packages = ["africanjokes"]
