@@ -118,7 +118,7 @@ $ africanjokes --joke
 Why did the chicken cross the road in Lagos? To buy suya on the other side!
 
 $ africanjokes --version
-africanjokes version 1.0.0
+africanjokes version 1.0.1
 
 $ africanjokes --help
 Usage: africanjokes [OPTIONS]
