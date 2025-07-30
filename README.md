@@ -138,7 +138,7 @@ Here’s what you get when you use africanjokes:
 import africanjokes
 
 print(africanjokes.get_joke())
-# Output: Why did the goat refuse to leave the party? Because it was the G.O.A.T!
+# Output: Why did the lion avoid social media? Too many cheetahs!
 ```
 
 ---
