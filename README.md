@@ -1,7 +1,7 @@
 # africanjokes 🌍
 
 [![PyPI version](https://img.shields.io/pypi/v/africanjokes)](https://pypi.org/project/africanjokes/)
-[![Downloads](https://static.pepy.tech/badge/africanjokes)](https://pepy.tech/project/africanjokes)
+[![PyPI Downloads](https://static.pepy.tech/badge/africanjokes)](https://pepy.tech/projects/africanjokes)
 [![GitHub Actions Status](https://github.com/daddysboy21/africanjokes/actions/workflows/python-app.yml/badge.svg)](https://github.com/daddysboy21/africanjokes/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
