@@ -26,7 +26,7 @@ setup(
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
         "Topic :: Games/Entertainment",
-        "Topic :: Games/Entertainment :: Humor"
+        "Topic :: Games/Entertainment"
     ],
     entry_points={
         "console_scripts": [
