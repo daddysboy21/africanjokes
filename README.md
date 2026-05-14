@@ -1,4 +1,4 @@
-# africanjokes 🌍
+# africanjokes
 
 <!-- Main project stats badges -->
 [![PyPI version](https://img.shields.io/pypi/v/africanjokes)](https://pypi.org/project/africanjokes/)
@@ -25,32 +25,32 @@
 [![Twitch](https://img.shields.io/badge/Twitch-daddysboy_21-9146FF?style=flat&logo=twitch&logoColor=white)](https://twitch.tv/daddysboy_21)
 [![Gravatar](https://img.shields.io/badge/Gravatar-daddysboy21-4B8BBE?style=flat&logo=gravatar&logoColor=white)](https://daddysboy21.link)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp&logoColor=white)](https://wa.me/231555557034)
-[![Buy Me A Coffee](https://img.shields.io/badge/Support☕-Buy%20Me%20a%20Coffee-orange?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/PBEzMY14YC)
+[![Buy Me A Coffee](https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-orange?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/PBEzMY14YC)
 
 ---
 
 **africanjokes** is a simple, lightweight Python library that delivers random African jokes —  
 because every coder deserves a laugh, especially from the Motherland.  
-Spread joy, lighten up your day, and code with a smile! 😄
+Spread joy, lighten up your day, and code with a smile!
 
 ---
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
-- [Installation](#-installation)
-- [What is africanjokes?](#-what-is-africanjokes)
-- [Quickstart](#-quickstart)
-- [Contributing](#️-contributing)
-- [License](#-license)
-- [Author](#-author)
-- [Connect with Me](#-connect-with-me)
-- [Support & Spread Laughter](#-support--spread-laughter)
+- [Installation](#installation)
+- [What is africanjokes?](#what-is-africanjokes)
+- [Quickstart](#quickstart)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+- [Connect with Me](#connect-with-me)
+- [Support & Spread Laughter](#support--spread-laughter)
 
 ---
 
-## 📦 Installation
+## Installation
 
 Get started instantly with pip:
 
@@ -60,22 +60,22 @@ pip install africanjokes
 
 ---
 
-## 🤔 What is africanjokes?
+## What is africanjokes?
 
 `africanjokes` brings the vibrant humor of Africa right into your terminal, scripts, bots, or applications.
 
 **Perfect for:**
-- Coding sessions 👨‍💻
-- Presentations 🗣️
-- Discord/Telegram bots 🤖
-- Slack integrations 💬
-- Daily CLI jokes ☀️
+- Coding sessions
+- Presentations
+- Discord/Telegram bots
+- Slack integrations
+- Daily CLI jokes
 
 Whether you're looking to break the ice or just need a pick-me-up, africanjokes has you covered!
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### Use in Python
 
@@ -96,7 +96,7 @@ Get a new random African joke every time you run it!
 
 ---
 
-## 🖥️ CLI Usage
+## CLI Usage
 
 africanjokes comes with a handy command-line interface.
 
@@ -130,7 +130,7 @@ Options:
 
 ---
 
-## 👀 Preview
+## Preview
 
 Here’s what you get when you use africanjokes:
 
@@ -143,7 +143,7 @@ print(africanjokes.get_joke())
 
 ---
 
-## 🐍 Python Version Compatibility
+## Python Version Compatibility
 
 africanjokes supports:
 
@@ -152,7 +152,7 @@ africanjokes supports:
 
 ---
 
-## 🤖 CLI Testing Automation
+## CLI Testing Automation
 
 CLI commands are tested automatically using [pytest](https://pytest.org/) and [pytest-console-scripts](https://github.com/manahl/pytest-plugins/tree/master/pytest-console-scripts).
 
@@ -170,7 +170,7 @@ def test_get_joke_returns_string():
 
 ---
 
-## 🛠️ Contributing
+## Contributing
 
 Got a great African joke to share?  
 Help us keep the laughter flowing — contributions are welcome!
@@ -183,23 +183,23 @@ See [`CONTRIBUTING wiki`](https://github.com/daddysboy21/africanjokes/wiki/Contr
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [`MIT License`](https://github.com/daddysboy21/africanjokes/blob/main/LICENSE)
  — free to use, modify, and distribute.
 
 ---
 
-## 👤 Author
+## Author
 
 **`Morris D. Toclo`**  
 Co-Founder & Co-CEO of LoneScore  
 Student — BlueCrest University College Liberia  
-Monrovia, Liberia `🇱🇷`
+Monrovia, Liberia
 
 ---
 
-## 🌐 Connect with Me
+## Connect with Me
 
 - [`Website`](https://daddysboy21.link)
 - [`GitHub`](https://github.com/daddysboy21)
@@ -214,16 +214,16 @@ Monrovia, Liberia `🇱🇷`
 
 ---
 
-## 💖 Support & Spread Laughter
+## Support & Spread Laughter
 
 If you enjoy using africanjokes, please:
 
-- ⭐ Star the repo  
-- 🛠️ Contribute your own jokes  
-- ☕ [`Buy Me a Coffee`](https://buymeacoffee.com/PBEzMY14YC)  
-- 📣 Share it with your community  
+- Star the repo  
+- Contribute your own jokes  
+- [`Buy Me a Coffee`](https://buymeacoffee.com/PBEzMY14YC)  
+- Share it with your community  
 
 Let’s spread African joy — one joke at a time.  
-**`Made with ❤️ in Africa.`**
+**`Made with love in Africa.`**
 
 ---
