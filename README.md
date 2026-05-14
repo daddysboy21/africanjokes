@@ -2,10 +2,12 @@
 
 <!-- Main project stats badges -->
 [![PyPI version](https://img.shields.io/pypi/v/africanjokes)](https://pypi.org/project/africanjokes/)
+[![npm version](https://img.shields.io/npm/v/africanjokes)](https://www.npmjs.com/package/africanjokes)
 [![Downloads](https://img.shields.io/pepy/dt/africanjokes)](https://pepy.tech/project/africanjokes)
 [![Actions Status](https://github.com/daddysboy21/africanjokes/actions/workflows/python-app.yml/badge.svg)](https://github.com/daddysboy21/africanjokes/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Versions](https://img.shields.io/pypi/pyversions/africanjokes)](https://pypi.org/project/africanjokes/)
+[![Node Version](https://img.shields.io/node/v/africanjokes)](https://www.npmjs.com/package/africanjokes)
 [![Maintenance](https://img.shields.io/maintenance/yes/2025)](https://github.com/daddysboy21/africanjokes)
 
 <!-- GitHub community stats badges -->
@@ -29,14 +31,15 @@
 
 ---
 
-**africanjokes** is a small, dependency-free Python library and CLI that delivers
+**africanjokes** is a small, dependency-free library and CLI that delivers
 random African jokes and proverbs — categorised by country and theme — straight
-into your terminal, scripts, bots, or applications. Spread joy, lighten up your
-day, and code with a smile.
+into your terminal, scripts, bots, or applications. Available for **Python**
+(via `pip`) and **Node.js** (via `npm`), with a shared dataset and matching
+APIs in both ecosystems.
 
 > v1.2.0 ships **540 jokes from 20 countries**, **156 proverbs across 44
-> distinct people / language attributions**, a typed Python API, and an
-> expanded CLI with country / theme filters.
+> distinct people / language attributions**, typed APIs in both Python and
+> JavaScript, and an expanded CLI with country / theme filters.
 
 ---
 
@@ -45,6 +48,7 @@ day, and code with a smile.
 - [Installation](#installation)
 - [Quickstart](#quickstart)
 - [Python API](#python-api)
+- [JavaScript API](#javascript-api)
 - [CLI Usage](#cli-usage)
 - [Data Coverage](#data-coverage)
 - [Contributing](#contributing)
@@ -58,29 +62,52 @@ day, and code with a smile.
 
 ## Installation
 
+**Python (PyPI):**
+
 ```bash
 pip install africanjokes
 ```
 
-No third-party dependencies. Supports Python 3.9 and newer on Windows, macOS,
-and Linux.
+Requires Python 3.9+. No third-party dependencies.
+
+**Node.js (npm):**
+
+```bash
+npm install africanjokes
+```
+
+Requires Node 16+. ESM only, no runtime dependencies. TypeScript types ship
+in the package — no `@types/*` install needed.
+
+Both packages run on Windows, macOS, and Linux.
 
 ---
 
 ## Quickstart
 
+**Python:**
+
 ```python
 import africanjokes
 
 print(africanjokes.get_joke())
-# -> "African weddings: Come for love, stay for the jollof."
-
 print(africanjokes.get_joke(country="Nigeria"))
 print(africanjokes.get_joke(theme="power"))
 print(africanjokes.get_proverb(country="Ghana"))
 ```
 
-From the terminal:
+**JavaScript:**
+
+```js
+import { getJoke, getProverb } from "africanjokes";
+
+console.log(String(getJoke()));
+console.log(String(getJoke({ country: "Nigeria" })));
+console.log(String(getJoke({ theme: "power" })));
+console.log(String(getProverb({ country: "Ghana" })));
+```
+
+**CLI** (identical flags whichever package you installed):
 
 ```bash
 africanjokes                        # random joke
@@ -88,6 +115,9 @@ africanjokes --country Nigeria      # random Nigerian joke
 africanjokes --proverb              # random African proverb
 africanjokes --count 5 --theme food # five food-themed jokes
 ```
+
+For a one-off run without installing globally, Node users can do
+`npx africanjokes --country Liberia`.
 
 ---
 
@@ -123,6 +153,44 @@ print(proverb.attribution)# "Yoruba"
 
 Filters are case-insensitive. Unknown countries or themes raise `LookupError`
 with a clear message.
+
+---
+
+## JavaScript API
+
+The npm package mirrors the Python API with idiomatic JS naming:
+
+| Function | Returns | Notes |
+| --- | --- | --- |
+| `getJoke({ country?, theme? })` | `Joke` | Random joke, optionally filtered. |
+| `getJokes(n = 1, { country?, theme? })` | `Joke[]` | `n` distinct jokes (capped at pool). |
+| `getProverb({ country? })` | `Proverb` | Random proverb. |
+| `getProverbs(n = 1, { country? })` | `Proverb[]` | `n` distinct proverbs. |
+| `allJokes()` / `allProverbs()` | `Joke[]` / `Proverb[]` | Full data set. |
+| `listCountries(kind = "jokes")` | `string[]` | `"jokes"`, `"proverbs"`, or `"all"`. |
+| `listThemes()` | `string[]` | All joke themes. |
+| `version` | `string` | Installed library version. |
+
+`Joke` and `Proverb` instances expose `.text`, `.country`, plus `.themes` or
+`.attribution`. They implement `toString()` so they print naturally:
+
+```js
+import { getJoke, getProverb, Joke } from "africanjokes";
+
+const j: Joke = getJoke({ country: "Ghana" });
+j.text         // the text
+j.country      // "Ghana"
+j.themes       // ["food", "politics"]
+`${j}`         // same as j.text
+
+const p = getProverb();
+p.attribution  // e.g. "Yoruba"
+```
+
+Filters are case-insensitive. Unknown countries/themes throw `NoMatchError`
+(an `Error` subclass); non-positive `n` throws `RangeError`.
+
+See [`npm/README.md`](npm/README.md) for the package-local docs.
 
 ---
 
@@ -218,11 +286,26 @@ for the full guide.
 ```bash
 git clone https://github.com/daddysboy21/africanjokes
 cd africanjokes
+
+# Python package
 pip install -e ".[test]"
-pytest
+pytest                                     # 37 tests
+
+# npm package
+cd npm && npm test                         # 30 tests
+cd ..
+
+# Validate data files (schema, theme vocabulary, duplicates)
+python tools/validate_data.py
+
+# Sync canonical Python data into the npm copy after editing
+node tools/sync_data.mjs
 ```
 
-37 tests cover the library API and CLI end-to-end.
+`pyproject.toml`, `africanjokes/__init__.py` (`__version__`), and
+`npm/package.json` are kept in lockstep. See
+[`CONTRIBUTING.md`](CONTRIBUTING.md) for the data-contribution flow and the
+release checklist.
 
 ---
 

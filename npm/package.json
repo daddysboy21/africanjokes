@@ -1,0 +1,58 @@
+{
+  "name": "africanjokes",
+  "version": "1.2.0",
+  "description": "Random African jokes and proverbs, with country and theme filters. JavaScript companion to the Python package of the same name.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "bin": {
+    "africanjokes": "./src/cli.js"
+  },
+  "files": [
+    "src/**/*.js",
+    "src/data/*.json",
+    "types/**/*.d.ts",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "sync-data": "node ../tools/sync_data.mjs",
+    "prepack": "node ../tools/sync_data.mjs"
+  },
+  "keywords": [
+    "jokes",
+    "proverbs",
+    "africa",
+    "african",
+    "humor",
+    "fun",
+    "cli"
+  ],
+  "author": {
+    "name": "Morris D. Toclo",
+    "email": "morristoclo@gmail.com",
+    "url": "https://daddysboy21.link"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daddysboy21/africanjokes.git",
+    "directory": "npm"
+  },
+  "homepage": "https://github.com/daddysboy21/africanjokes#readme",
+  "bugs": {
+    "url": "https://github.com/daddysboy21/africanjokes/issues"
+  },
+  "funding": "https://buymeacoffee.com/PBEzMY14YC"
+}

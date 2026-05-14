@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [1.2.0] — 2026-05-14
 
 ### Added
+- **npm package** — `africanjokes` is now also published on npm with the same
+  API and CLI surface, sharing the same data files. Install with
+  `npm install africanjokes` (Node 16+). See `npm/README.md`.
+- **`tools/sync_data.mjs`** — copies the canonical Python data files into the
+  npm package and runs the validator. Used in the npm package's `prepack`
+  step and recommended after editing data.
 - **Jokes:** expanded from 252 to **540** entries, with broader country
   coverage (40 Nigerian, 28 Liberian, 26 each from Ghana / Kenya / South Africa,
   19 Ethiopian, plus deeper representation for Tanzania, Uganda, Egypt,

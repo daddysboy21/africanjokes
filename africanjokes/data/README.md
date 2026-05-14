@@ -1,82 +1,64 @@
 # africanjokes data files
 
-This directory ships the curated joke and proverb corpus that the library
-loads at runtime.
-
-## Files
-
-| File | Schema | Description |
-| --- | --- | --- |
-| `jokes.json` | `{schema_version: int, jokes: Joke[]}` | All jokes. |
-| `proverbs.json` | `{schema_version: int, proverbs: Proverb[]}` | All proverbs. |
-
-Both files are loaded lazily on first access via `importlib.resources` and
-cached in module-level state — see `africanjokes/__init__.py`.
-
-## Joke schema
-
-```json
-{"text": "string", "country": "string", "themes": ["string", ...]}
-```
-
-- **`text`** *(required)* — the joke. Curly quotes (`’` `“ ”`) and em dashes
-  (`—`) are encouraged.
-- **`country`** *(required)* — one of the existing country labels, or
-  `"Pan-African"` for jokes that aren't tied to a specific country. Use the
-  modern country name in English (e.g. `"DRC"`, not `"Democratic Republic of
-  the Congo"`).
-- **`themes`** *(required)* — one or more strings drawn from the controlled
-  vocabulary. The full list lives in
-  [`tools/validate_data.py`](../../tools/validate_data.py) under
-  `ALLOWED_THEMES`. Today the vocabulary is:
-
-  `animals`, `family`, `fashion`, `food`, `internet`, `money`, `music`,
-  `politics`, `power`, `religion`, `school`, `sports`, `technology`, `time`,
-  `traffic`, `transport`, `weather`, `weddings`, `work`.
-
-## Proverb schema
-
-```json
-{"text": "string", "country": "string", "attribution": "string"}
-```
-
-- **`text`** *(required)* — the proverb as it's traditionally said. For proverbs
-  in non-English languages, include the original then a translation
-  (`"Haraka haraka haina baraka — hurry, hurry, has no blessing."`).
-- **`country`** *(required)* — the modern country most associated with the
-  language group.
-- **`attribution`** *(required)* — the people / language group the proverb
-  comes from (e.g. `"Yoruba"`, `"Akan"`, `"Swahili"`, `"Wolof"`).
-
-## Validation
-
-Run the validator from the repo root before submitting any data change:
+This directory holds the **canonical** data shipped by both the Python and
+npm packages of `africanjokes`. Edit here, then run:
 
 ```bash
-python tools/validate_data.py
+python ../../tools/validate_data.py
+node ../../tools/sync_data.mjs       # mirrors into ../../npm/src/data/
 ```
 
-It enforces:
-- Top-level shape and `schema_version` is an integer.
-- Every entry has the required fields, all non-empty.
-- Joke `themes` are in the controlled vocabulary.
-- No duplicate `text` (case- and whitespace-insensitive) within a file.
+## `jokes.json`
 
-The validator exits non-zero on any failure and is run in CI on every PR.
+```json
+{
+  "schema_version": 1,
+  "jokes": [
+    {
+      "text": "Why did the chicken cross the road in Lagos? To get to the other side of traffic!",
+      "country": "Nigeria",
+      "themes": ["traffic", "animals"]
+    }
+  ]
+}
+```
 
-## Adding a new country
+| Field | Type | Notes |
+| --- | --- | --- |
+| `text` | non-empty string | The joke as displayed. Unicode is fine. |
+| `country` | non-empty string | A country name, or `"Pan-African"` if not country-specific. |
+| `themes` | non-empty list of strings | Drawn from the controlled vocabulary in [`tools/validate_data.py`](../../tools/validate_data.py) (`ALLOWED_THEMES`). |
 
-If your contribution introduces a new country that isn't already represented:
+The validator enforces:
 
-1. Add jokes / proverbs that use the new country label.
-2. Run `python tools/validate_data.py` (the validator does not restrict
-   countries — only themes are vocabulary-checked).
-3. The `africanjokes --list-countries` and `--list-proverb-countries` CLI
-   commands will pick it up automatically.
+- presence of all three fields and that none are empty
+- every `theme` is a member of the allowed vocabulary
+- no duplicate `text` (case- and whitespace-insensitive)
 
-## Adding a new theme
+## `proverbs.json`
 
-Themes *are* vocabulary-checked — adding a new one requires updating
-`ALLOWED_THEMES` in `tools/validate_data.py` in the same PR. Keep the
-vocabulary small and orthogonal; if a new candidate overlaps an existing
-theme, prefer the existing one.
+```json
+{
+  "schema_version": 1,
+  "proverbs": [
+    {
+      "text": "Until the lion learns to write, every story will glorify the hunter.",
+      "country": "Nigeria",
+      "attribution": "Igbo"
+    }
+  ]
+}
+```
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `text` | non-empty string | The proverb. |
+| `country` | non-empty string | The modern country most associated with the source culture. |
+| `attribution` | non-empty string | The people / language group (e.g. `"Yoruba"`, `"Akan"`, `"Swahili"`). Use the demonym if a more specific group is unknown. |
+
+The validator enforces presence of all three fields and disallows duplicates.
+
+## Adding new data
+
+See [`CONTRIBUTING.md`](../../CONTRIBUTING.md) at the repo root for the full
+contribution flow, including authenticity rules for proverbs.
