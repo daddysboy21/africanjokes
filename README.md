@@ -29,20 +29,26 @@
 
 ---
 
-**africanjokes** is a simple, lightweight Python library that delivers random African jokes —  
-because every coder deserves a laugh, especially from the Motherland.  
-Spread joy, lighten up your day, and code with a smile!
+**africanjokes** is a small, dependency-free Python library and CLI that delivers
+random African jokes and proverbs — categorised by country and theme — straight
+into your terminal, scripts, bots, or applications. Spread joy, lighten up your
+day, and code with a smile.
 
----
+> v1.2.0 ships **540 jokes from 20 countries**, **156 proverbs across 44
+> distinct people / language attributions**, a typed Python API, and an
+> expanded CLI with country / theme filters.
 
 ---
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [What is africanjokes?](#what-is-africanjokes)
 - [Quickstart](#quickstart)
+- [Python API](#python-api)
+- [CLI Usage](#cli-usage)
+- [Data Coverage](#data-coverage)
 - [Contributing](#contributing)
+- [Development](#development)
 - [License](#license)
 - [Author](#author)
 - [Connect with Me](#connect-with-me)
@@ -52,141 +58,178 @@ Spread joy, lighten up your day, and code with a smile!
 
 ## Installation
 
-Get started instantly with pip:
-
 ```bash
 pip install africanjokes
 ```
 
----
-
-## What is africanjokes?
-
-`africanjokes` brings the vibrant humor of Africa right into your terminal, scripts, bots, or applications.
-
-**Perfect for:**
-- Coding sessions
-- Presentations
-- Discord/Telegram bots
-- Slack integrations
-- Daily CLI jokes
-
-Whether you're looking to break the ice or just need a pick-me-up, africanjokes has you covered!
+No third-party dependencies. Supports Python 3.9 and newer on Windows, macOS,
+and Linux.
 
 ---
 
 ## Quickstart
 
-### Use in Python
-
 ```python
 import africanjokes
 
-joke = africanjokes.get_joke()
-print(joke)
+print(africanjokes.get_joke())
+# -> "African weddings: Come for love, stay for the jollof."
+
+print(africanjokes.get_joke(country="Nigeria"))
+print(africanjokes.get_joke(theme="power"))
+print(africanjokes.get_proverb(country="Ghana"))
 ```
 
-### Use from Command Line
+From the terminal:
 
 ```bash
-africanjokes --joke
+africanjokes                        # random joke
+africanjokes --country Nigeria      # random Nigerian joke
+africanjokes --proverb              # random African proverb
+africanjokes --count 5 --theme food # five food-themed jokes
 ```
 
-Get a new random African joke every time you run it!
+---
+
+## Python API
+
+Every function is fully typed and documented. The full public surface:
+
+| Function | Description |
+| --- | --- |
+| `get_joke(country=None, theme=None)` | A random joke, optionally filtered. Returns a `Joke` (a `str` subclass with `.country` and `.themes`). |
+| `get_jokes(n=1, country=None, theme=None)` | `n` distinct random jokes (capped at the matching pool size). |
+| `get_proverb(country=None)` | A random African proverb. Returns a `Proverb` (a `str` with `.country` and `.attribution`). |
+| `get_proverbs(n=1, country=None)` | `n` distinct random proverbs. |
+| `all_jokes()` / `all_proverbs()` | The full data set as lists. |
+| `list_countries(kind="jokes")` | Sorted list of countries. `kind` is `"jokes"`, `"proverbs"`, or `"all"`. |
+| `list_themes()` | Sorted list of joke themes. |
+| `__version__` | The installed library version (`"1.2.0"`). |
+
+`Joke` and `Proverb` are subclasses of `str`, so they print and concatenate
+exactly like strings — but you can still inspect their metadata:
+
+```python
+joke = africanjokes.get_joke(country="Ghana")
+print(joke)               # the joke text
+print(joke.country)       # "Ghana"
+print(joke.themes)        # ("food", "politics")
+
+proverb = africanjokes.get_proverb()
+print(proverb)            # the proverb text
+print(proverb.country)    # "Nigeria"
+print(proverb.attribution)# "Yoruba"
+```
+
+Filters are case-insensitive. Unknown countries or themes raise `LookupError`
+with a clear message.
 
 ---
 
 ## CLI Usage
 
-africanjokes comes with a handy command-line interface.
+```text
+africanjokes [-h] [-j | -p | --list-countries | --list-proverb-countries | --list-themes | -v]
+             [-c NAME] [-t NAME] [-n N] [--metadata]
+```
 
-### Commands
+### Flags
 
-- `--joke` or `-j`  
-  Output a random African joke.
+| Flag | Description |
+| --- | --- |
+| `-j`, `--joke` | Print a random joke (default behavior). |
+| `-p`, `--proverb` | Print a random African proverb. |
+| `-c NAME`, `--country NAME` | Filter to jokes/proverbs from a country. |
+| `-t NAME`, `--theme NAME` | Filter jokes by theme. (Ignored for proverbs.) |
+| `-n N`, `--count N` | Print `N` items (default: 1). |
+| `--metadata` | Show country/theme alongside each item. |
+| `--list-countries` | List all countries that have jokes. |
+| `--list-proverb-countries` | List all countries that have proverbs. |
+| `--list-themes` | List all joke themes. |
+| `-v`, `--version` | Print the installed version. |
+| `-h`, `--help` | Show usage. |
 
-- `--version` or `-v`  
-  Show the current africanjokes version.
-
-- `--help` or `-h`  
-  Display help message and usage.
-
-### Example Output
+### Examples
 
 ```bash
-$ africanjokes --joke
-Why did the chicken cross the road in Lagos? To buy suya on the other side!
+$ africanjokes
+African weddings: Come for love, stay for the jollof.
+
+$ africanjokes --country Liberia
+In Liberia, taxis don't use maps—they use destiny.
+
+$ africanjokes --theme power --count 3
+African presidents: they promise light but deliver darkness.
+African horror movie: When NEPA goes off and your phone is on 2%.
+African kids do homework with candlelight and still pass.
+
+$ africanjokes --proverb --country Ghana --metadata
+Wisdom is like a baobab tree; no one individual can embrace it.  [Ghana · Akan]
+
+$ africanjokes --list-themes
+animals
+family
+fashion
+food
+internet
+... (and more)
 
 $ africanjokes --version
-africanjokes version 1.0.1
-
-$ africanjokes --help
-Usage: africanjokes [OPTIONS]
-Options:
-  --joke, -j      Show a random African joke
-  --version, -v   Show version info
-  --help, -h      Show this help message
+africanjokes 1.2.0
 ```
 
 ---
 
-## Preview
+## Data Coverage
 
-Here’s what you get when you use africanjokes:
+- **Jokes:** 540 entries across 20 countries (Botswana, Cameroon, DRC, Egypt,
+  Ethiopia, Ghana, Kenya, Liberia, Morocco, Mozambique, Nigeria, Pan-African,
+  Rwanda, Senegal, Sierra Leone, South Africa, Tanzania, Uganda, Zambia,
+  Zimbabwe), tagged with 19 themes (animals, family, fashion, food, internet,
+  money, music, politics, power, religion, school, sports, technology, time,
+  traffic, transport, weather, weddings, work).
+- **Proverbs:** 156 entries with attribution to 44 distinct people /
+  language groups (Akan, Ashanti, Bambara, Bantu, Bondei, Buganda, Hausa, Igbo,
+  Mongo, Swahili, Wolof, Yoruba, Zulu, and others).
 
-```python
-import africanjokes
-
-print(africanjokes.get_joke())
-# Output: Why did the lion avoid social media? Too many cheetahs!
-```
-
----
-
-## Python Version Compatibility
-
-africanjokes supports:
-
-- Python 3.7+
-- Works on Windows, macOS, and Linux
-
----
-
-## CLI Testing Automation
-
-CLI commands are tested automatically using [pytest](https://pytest.org/) and [pytest-console-scripts](https://github.com/manahl/pytest-plugins/tree/master/pytest-console-scripts).
-
-Example test:
-
-```python
-import africanjokes
-
-def test_get_joke_returns_string():
-    joke = africanjokes.get_joke()
-    assert isinstance(joke, str)
-    assert joke
-     
-```
+The data lives in `africanjokes/data/jokes.json` and
+`africanjokes/data/proverbs.json` — easy to extend in a PR.
 
 ---
 
 ## Contributing
 
-Got a great African joke to share?  
-Help us keep the laughter flowing — contributions are welcome!
+Got a great African joke or proverb to share? Pull requests are welcome.
 
-1. **Fork** the repo  
-2. **Add** your joke  
-3. **Submit** a PR  
+1. Fork the repo.
+2. Add your joke to `africanjokes/data/jokes.json` (with `country` and at least
+   one `themes` entry) — or your proverb to
+   `africanjokes/data/proverbs.json` (with `country` and `attribution`).
+3. Run the tests with `pytest`.
+4. Submit a PR.
 
-See [`CONTRIBUTING wiki`](https://github.com/daddysboy21/africanjokes/wiki/Contributing) for full details.
+See the [contributing wiki](https://github.com/daddysboy21/africanjokes/wiki/Contributing)
+for the full guide.
+
+---
+
+## Development
+
+```bash
+git clone https://github.com/daddysboy21/africanjokes
+cd africanjokes
+pip install -e ".[test]"
+pytest
+```
+
+37 tests cover the library API and CLI end-to-end.
 
 ---
 
 ## License
 
-This project is licensed under the [`MIT License`](https://github.com/daddysboy21/africanjokes/blob/main/LICENSE)
- — free to use, modify, and distribute.
+MIT — see [`LICENSE`](https://github.com/daddysboy21/africanjokes/blob/main/LICENSE).
+Free to use, modify, and distribute.
 
 ---
 
@@ -218,10 +261,10 @@ Monrovia, Liberia
 
 If you enjoy using africanjokes, please:
 
-- Star the repo  
-- Contribute your own jokes  
-- [`Buy Me a Coffee`](https://buymeacoffee.com/PBEzMY14YC)  
-- Share it with your community  
+- Star the repo
+- Contribute your own jokes or proverbs
+- [`Buy Me a Coffee`](https://buymeacoffee.com/PBEzMY14YC)
+- Share it with your community
 
 Let’s spread African joy — one joke at a time.  
 **`Made with love in Africa.`**
