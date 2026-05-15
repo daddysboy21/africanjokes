@@ -24,7 +24,7 @@ import json
 import random as _random
 from typing import List, Optional, Tuple
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 __all__ = [
     "Joke",
@@ -50,7 +50,7 @@ class Joke(str):
     country: str
     themes: Tuple[str, ...]
 
-    def __new__(cls, text: str, country: str, themes) -> "Joke":
+    def __new__(cls, text: str, country: str, themes: List[str]) -> "Joke":
         instance = super().__new__(cls, text)
         instance.country = country
         instance.themes = tuple(themes)

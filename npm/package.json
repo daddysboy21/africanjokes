@@ -1,6 +1,6 @@
 {
   "name": "africanjokes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Random African jokes and proverbs, with country and theme filters. JavaScript companion to the Python package of the same name.",
   "type": "module",
   "main": "./src/index.js",
@@ -11,9 +11,7 @@
       "import": "./src/index.js"
     }
   },
-  "bin": {
-    "africanjokes": "./src/cli.js"
-  },
+  "bin": "src/cli.js",
   "files": [
     "src/**/*.js",
     "src/data/*.json",
