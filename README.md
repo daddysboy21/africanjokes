@@ -32,7 +32,7 @@
 ---
 
 **africanjokes** is a small, dependency-free library and CLI that delivers
-random African jokes and proverbs — categorised by country and theme — straight
+random African jokes and proverbs - categorised by country and theme - straight
 into your terminal, scripts, bots, or applications. Available for **Python**
 (via `pip`) and **Node.js** (via `npm`), with a shared dataset and matching
 APIs in both ecosystems.
